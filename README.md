@@ -8,7 +8,7 @@ docker inspect $(docker ps | grep edge | awk '{print $1}') | grep -A 20 "Env"
 ## Расшифровка старого ключа:
 echo "BASE64" | base64 -d
 
-## Ставим агента на удаленный сервер
+## Ставим обновленного агента на удаленный сервер
 docker rm -f portainer_edge_agent && \
 docker run -d \
   -v /var/run/docker.sock:/var/run/docker.sock \
