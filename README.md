@@ -1,12 +1,13 @@
 # Кастомная работа агента EDGE Portainer в режиме когда бекенд за Tunnels Cloudflare
 
 
-#Посмотреть переменные окружения контейнера edge
+## Посмотреть переменные окружения контейнера edge
 docker inspect $(docker ps | grep edge | awk '{print $1}') | grep -A 20 "Env"
 
-#Расшифровка старого ключа:
+## Расшифровка старого ключа:
 echo "BASE64" | base64 -d
 
+## Ставим агента на удаленный сервер
 docker rm -f portainer_edge_agent && \
 docker run -d \
   -v /var/run/docker.sock:/var/run/docker.sock \
